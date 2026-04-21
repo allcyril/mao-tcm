@@ -99,7 +99,7 @@ export default function Home({ articles, videos }) {
             以中醫守護你的健康
           </h2>
           <p className="about-p">
-            我是周亞錚醫師，同時具備中醫師執照與西醫內科專科醫師資格。我相信，中西醫整合的觀點，能讓每一位患者得到更全面、更精準的照護。
+            我是周亞錚醫師，同時具備中醫師執照與內科專科醫師資格。我相信，中西醫整合的觀點，能讓每一位患者得到更全面、更精準的照護。
           </p>
           <p className="about-p">
             從小朋友的體質調理到成人的慢性調養，從中醫減重到美顏針灸，我用溫和有效的方式，陪伴每一個家庭走過健康的每個階段。
@@ -116,7 +116,7 @@ export default function Home({ articles, videos }) {
               <p>中醫學系畢業 · 中醫師高考及格</p>
             </div>
             <div className="cred">
-              <h4>西醫內科專科醫師</h4>
+              <h4>內科專科醫師</h4>
               <p>衛生福利部 內科專科醫師認證</p>
             </div>
             <div className="cred">
@@ -140,7 +140,7 @@ export default function Home({ articles, videos }) {
             { icon: '⚖️', tag: '中醫減重', title: '科學中醫減重', desc: '針灸、埋線、中藥體質調理三合一，從根本改善代謝，讓體重穩定下降不復胖。' },
             { icon: '🧒', tag: '小兒中醫', title: '兒科調理', desc: '腸胃虛弱、反覆感冒、過敏體質，以溫和中藥與推拿，守護孩子健康成長。' },
             { icon: '✨', tag: '美顏針灸', title: '美顏針 · 逆齡', desc: '顏面針灸促進膠原蛋白再生，改善肌膚鬆弛、細紋，自然緊緻無副作用。' },
-            { icon: '🩺', tag: '內科專科', title: '中西醫整合內科', desc: '以西醫內科專科資格為基礎，結合中醫調理，提供更全方位的慢性病管理。' },
+            { icon: '🩺', tag: '內科專科', title: '中西醫整合內科', desc: '以內科專科資格為基礎，結合中醫調理，提供更全方位的慢性病管理。' },
           ].map(s => (
             <div className="svc-card" key={s.tag}>
               <div className="svc-icon">{s.icon}</div>
