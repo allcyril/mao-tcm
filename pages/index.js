@@ -20,7 +20,7 @@ export default function Home({ articles }) {
   return (
     <>
       <Head>
-        <title>{SITE.name} | {SITE.doctor}</title>
+        <title>{`${SITE.name} | ${SITE.doctor}`}</title>
         <meta name="description" content={SITE.desc} />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />

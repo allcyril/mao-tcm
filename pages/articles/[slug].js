@@ -6,7 +6,7 @@ export default function ArticlePage({ article }) {
   return (
     <>
       <Head>
-        <title>{article.title} | 毛兒中醫故事館</title>
+        <title>{`${article.title} | 毛兒中醫故事館`}</title>
         <meta name="description" content={article.excerpt} />
       </Head>
 
