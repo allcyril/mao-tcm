@@ -446,13 +446,14 @@ section {
 }
 
 .yt-thumb {
-  height: 160px;
+  aspect-ratio: 16 / 9;
   background: linear-gradient(135deg, #2A2A2A, #3C3830);
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
   overflow: hidden;
+  width: 100%;
 }
 
 .yt-thumb img {
