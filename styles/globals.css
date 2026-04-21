@@ -764,15 +764,15 @@ section {
 @media (max-width: 768px) {
   .nav { padding: 0 20px; }
   .nav-links { display: none; }
-  .hero { grid-template-columns: 1fr; padding: 48px 20px 0; }
-  .hero-photo { display: none; }
+  .hero { grid-template-columns: 1fr; padding: 40px 20px 0; gap: 32px; }
   .hero h1 { font-size: 28px; }
+  .hero-photo { height: 260px; border-radius: 14px; }
   section { padding: 48px 20px; }
   .about-section { grid-template-columns: 1fr; gap: 32px; }
   .svc-grid { grid-template-columns: repeat(2, 1fr); }
   .articles-grid { grid-template-columns: 1fr; }
   .yt-grid { grid-template-columns: 1fr; }
   .contact-section { grid-template-columns: 1fr; gap: 40px; }
-  .band { padding: 16px 20px; }
+  .band { padding: 16px 20px; flex-wrap: wrap; gap: 16px; }
   .articles-list-grid { grid-template-columns: 1fr; }
 }
