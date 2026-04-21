@@ -1,7 +1,9 @@
 backend:
   name: github
-  repo: allcyril/mao-tcm   # ← 改成你的 GitHub 帳號/repo 名稱
+  repo: allcyril/mao-tcm
   branch: main
+  base_url: https://mao-tcm-cibl.vercel.app
+  auth_endpoint: /api/auth
 
 media_folder: public/uploads
 public_folder: /uploads
