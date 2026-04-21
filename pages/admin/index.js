@@ -14,9 +14,10 @@ export async function getServerSideProps({ res }) {
 <body>
   <div id="nc-root"></div>
   <script>window.CMS_MANUAL_INIT = true</script>
-  <script src="https://unpkg.com/decap-cms@2.10.192/dist/decap-cms.js"></script>
+  <script src="https://unpkg.com/decap-cms@2.10.192/dist/decap-cms.js" onload="initCMS()"></script>
   <script>
-    CMS.init({
+    function initCMS() {
+      CMS.init({
       config: {
         backend: {
           name: "github",
@@ -46,6 +47,7 @@ export async function getServerSideProps({ res }) {
         }]
       }
     })
+    }
   </script>
 </body>
 </html>`
