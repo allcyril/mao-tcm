@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import Link from 'next/link'
 import { getAllArticles } from '../lib/articles'
+import { getLatestVideos } from '../lib/youtube'
 
 const SITE = {
   name: '毛兒中醫故事館',
@@ -16,7 +17,7 @@ const SITE = {
   drive: 'https://drive.google.com/drive/folders/1H3SSYjL1XDq2nnOvow5ihHgcNP00YBME',
 }
 
-export default function Home({ articles }) {
+export default function Home({ articles, videos }) {
   return (
     <>
       <Head>
@@ -180,20 +181,31 @@ export default function Home({ articles }) {
         <div className="sec-eyebrow">YouTube 頻道</div>
         <h2 className="sec-h2">影片衛教，秒懂中醫</h2>
         <div className="yt-grid">
-          {[
-            { title: '體質自我檢測！你是氣虛、痰濕還是陽虛？中醫師帶你秒懂自己的肥胖原因', views: '3.4 萬次觀看', ago: '2 週前' },
-            { title: '小孩不愛吃藥怎麼辦？中醫小兒推拿三招，在家就能幫孩子調理腸胃', views: '1.8 萬次觀看', ago: '1 個月前' },
-          ].map((v, i) => (
-            <a href={SITE.yt} target="_blank" rel="noopener noreferrer" className="yt-card" key={i}>
+          {videos.length > 0 ? videos.map(v => (
+            <a href={v.url} target="_blank" rel="noopener noreferrer" className="yt-card" key={v.videoId}>
               <div className="yt-thumb">
+                <img src={v.thumbnail} alt={v.title} />
                 <div className="play-btn"><div className="play-tri"></div></div>
               </div>
               <div className="yt-info">
                 <h3>{v.title}</h3>
-                <p>{v.views} · {v.ago}</p>
+                <p>
+                  {v.views && `${v.views} 次觀看 · `}
+                  {v.published}
+                </p>
               </div>
             </a>
-          ))}
+          )) : (
+            <a href={SITE.yt} target="_blank" rel="noopener noreferrer" className="yt-card">
+              <div className="yt-thumb">
+                <div className="play-btn"><div className="play-tri"></div></div>
+              </div>
+              <div className="yt-info">
+                <h3>前往毛兒中醫故事館 YouTube 頻道</h3>
+                <p>點此觀看所有影片</p>
+              </div>
+            </a>
+          )}
         </div>
         <div className="yt-subscribe">
           <a href={SITE.yt} target="_blank" rel="noopener noreferrer">▶ 訂閱毛兒中醫故事館頻道</a>
@@ -286,5 +298,9 @@ export default function Home({ articles }) {
 
 export async function getStaticProps() {
   const articles = getAllArticles()
-  return { props: { articles } }
+  const videos = await getLatestVideos(2)
+  return {
+    props: { articles, videos },
+    revalidate: 3600, // 重新抓一次最新影片（每小時）
+  }
 }
