@@ -140,7 +140,7 @@ export default function Home({ articles, videos }) {
             { icon: '⚖️', tag: '中醫減重', title: '科學中醫減重', desc: '針灸、埋線、中藥體質調理三合一，從根本改善代謝，讓體重穩定下降不復胖。' },
             { icon: '🧒', tag: '小兒中醫', title: '兒科調理', desc: '腸胃虛弱、反覆感冒、過敏體質，以溫和中藥與推拿，守護孩子健康成長。' },
             { icon: '✨', tag: '美顏針灸', title: '美顏針 · 逆齡', desc: '顏面針灸促進膠原蛋白再生，改善肌膚鬆弛、細紋，自然緊緻無副作用。' },
-            { icon: '🩺', tag: '內科專科', title: '中西醫整合內科', desc: '以內科專科資格為基礎，結合中醫調理，提供更全方位的慢性病管理。' },
+            { icon: '🩺', tag: '內科專科', title: '內科調理', desc: '針對慢性病、免疫失調、睡眠障礙等內科問題，以中醫辨證論治為核心，從體質根本調理。' },
           ].map(s => (
             <div className="svc-card" key={s.tag}>
               <div className="svc-icon">{s.icon}</div>
