@@ -7,20 +7,6 @@ const nextConfig = {
       { protocol: 'https', hostname: 'drive.google.com' },
     ],
   },
-  async redirects() {
-    return [
-      {
-        source: '/admin',
-        destination: '/api/cms',
-        permanent: false,
-      },
-      {
-        source: '/admin/',
-        destination: '/api/cms',
-        permanent: false,
-      },
-    ]
-  },
 }
 
 module.exports = nextConfig
