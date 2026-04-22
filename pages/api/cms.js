@@ -11,7 +11,7 @@ export default function handler(req, res) {
 <body>
   <div id="nc-root"></div>
   <script>window.CMS_MANUAL_INIT = true</script>
-  <script src="https://unpkg.com/decap-cms@2.10.192/dist/decap-cms.js" onload="initCMS()"></script>
+  <script src="https://unpkg.com/decap-cms@2/dist/decap-cms.js" onload="initCMS()"></script>
   <script>
     function initCMS() {
       CMS.init({
