@@ -40,10 +40,13 @@ repo: 你的帳號/mao-tcm
 1. 前往 GitHub → Settings → Developer settings → OAuth Apps → New OAuth App
 2. 填入：
    - Application name: `mao-tcm-cms`
-   - Homepage URL: `https://你的網域`
-   - Authorization callback URL: `https://api.netlify.com/auth/done`
+   - Homepage URL: `https://mao-tcm-cibl.vercel.app`
+   - Authorization callback URL: `https://mao-tcm-cibl.vercel.app/api/auth`
 3. 取得 Client ID 和 Client Secret
-4. 在 Vercel 的 Environment Variables 加入這兩個值
+4. 在 Vercel → Settings → Environment Variables 加入以下兩個變數：
+   - 變數名稱：`NEXT_PUBLIC_GITHUB_CLIENT_ID`　值：你的 Client ID
+   - 變數名稱：`GITHUB_CLIENT_SECRET`　值：你的 Client Secret
+5. 加完後回到 Vercel 專案首頁，點「Redeploy」重新部署
 
 ---
 
