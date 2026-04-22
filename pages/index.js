@@ -2,6 +2,7 @@ import Head from 'next/head'
 import Link from 'next/link'
 import { getAllArticles } from '../lib/articles'
 import { getLatestVideos } from '../lib/youtube'
+import { getAboutContent } from '../lib/settings'
 
 const SITE = {
   name: '毛兒中醫故事館',
@@ -17,7 +18,7 @@ const SITE = {
   drive: 'https://drive.google.com/drive/folders/1H3SSYjL1XDq2nnOvow5ihHgcNP00YBME',
 }
 
-export default function Home({ articles, videos }) {
+export default function Home({ articles, videos, about }) {
   return (
     <>
       <Head>
@@ -98,35 +99,21 @@ export default function Home({ articles, videos }) {
             溫柔而專業，<br />
             以中醫守護你的健康
           </h2>
-          <p className="about-p">
-            我是周亞錚醫師，同時具備中醫師執照與內科專科醫師資格。我相信，中西醫整合的觀點，能讓每一位患者得到更全面、更精準的照護。
-          </p>
-          <p className="about-p">
-            從小朋友的體質調理到成人的慢性調養，從中醫減重到美顏針灸，我用溫和有效的方式，陪伴每一個家庭走過健康的每個階段。
-          </p>
-          <p className="about-p">
-            「毛兒中醫故事館」是我記錄日常診療故事、分享中醫知識的地方，希望讓更多人透過有趣易懂的方式，認識中醫的智慧。
-          </p>
+          <p className="about-p">{about?.about_p1}</p>
+          <p className="about-p">{about?.about_p2}</p>
+          <p className="about-p">{about?.about_p3}</p>
         </div>
         <div>
           <div className="sec-eyebrow">專業資歷</div>
           <div className="cred-list">
-            <div className="cred">
-              <h4>學術背景</h4>
-              <p>中醫學系畢業 · 中醫師高考及格</p>
-            </div>
-            <div className="cred">
-              <h4>內科專科醫師</h4>
-              <p>衛生福利部 內科專科醫師認證</p>
-            </div>
-            <div className="cred">
-              <h4>專科認證</h4>
-              <p>中華民國肥胖研究學會 減重專科認證<br />台灣顏面針灸醫學會 美顏針專科認證</p>
-            </div>
-            <div className="cred">
-              <h4>現任看診</h4>
-              <p>{SITE.clinicName}<br />{SITE.address}</p>
-            </div>
+            {(about?.credentials || []).map(c => (
+              <div className="cred" key={c.title}>
+                <h4>{c.title}</h4>
+                <p>{c.desc?.split('\n').map((line, i) => (
+                  <span key={i}>{line}{i < c.desc.split('\n').length - 1 && <br />}</span>
+                ))}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -299,8 +286,9 @@ export default function Home({ articles, videos }) {
 export async function getStaticProps() {
   const articles = getAllArticles()
   const videos = await getLatestVideos(2)
+  const about = getAboutContent()
   return {
-    props: { articles, videos },
-    revalidate: 3600, // 重新抓一次最新影片（每小時）
+    props: { articles, videos, about },
+    revalidate: 3600,
   }
 }

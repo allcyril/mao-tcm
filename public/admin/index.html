@@ -23,6 +23,29 @@
         public_folder: '/uploads',
         collections: [
           {
+            name: 'settings',
+            label: '網站設定',
+            files: [
+              {
+                name: 'about',
+                label: '關於我',
+                file: 'content/settings/about.md',
+                fields: [
+                  { label: '第一段', name: 'about_p1', widget: 'text' },
+                  { label: '第二段', name: 'about_p2', widget: 'text' },
+                  { label: '第三段', name: 'about_p3', widget: 'text' },
+                  {
+                    label: '專業資歷', name: 'credentials', widget: 'list',
+                    fields: [
+                      { label: '標題', name: 'title', widget: 'string' },
+                      { label: '內容', name: 'desc', widget: 'text' },
+                    ],
+                  },
+                ],
+              },
+            ],
+          },
+          {
             name: 'articles',
             label: '衛教文章',
             label_singular: '文章',
