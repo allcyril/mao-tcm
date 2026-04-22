@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(node -e ' *)",
+      "Bash(node.exe --version)",
+      "Bash(where node *)",
+      "PowerShell(node --version)",
+      "PowerShell(npm --version)",
+      "PowerShell(Test-Path \"C:\\\\Program Files\\\\nodejs\\\\node.exe\"; Test-Path \"$env:APPDATA\\\\npm\\\\node.exe\"; Get-ChildItem \"C:\\\\Program Files\\\\nodejs\\\\\" -ErrorAction SilentlyContinue | Select-Object -First 5)",
+      "PowerShell(& \"C:\\\\Program Files\\\\nodejs\\\\node.exe\" --version)",
+      "PowerShell(& \"C:\\\\Program Files\\\\nodejs\\\\npm.cmd\" --version)",
+      "PowerShell($env:PATH = \"C:\\\\Program Files\\\\nodejs;\" + $env:PATH; Set-Location \"C:\\\\Users\\\\allcy\\\\OneDrive\\\\文件\\\\Project\\\\mao-tcm\"; & \"C:\\\\Program Files\\\\nodejs\\\\npm.cmd\" run dev)",
+      "mcp__Claude_in_Chrome__tabs_context_mcp"
+    ]
+  }
+}
